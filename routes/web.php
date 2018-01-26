@@ -62,8 +62,11 @@ Route::post('settings/password', 'SettingsController@updatePassword');
   Route::get('/cretscore', function () {
          return view('loginguru.createnilai');
     });
- Route::get('/isbiosis', function () {
-        return view('loginguru.isbiosiswa');
+ Route::get('/biosis', function () {
+        return view('logguru.biodata_xii_3');
+    });
+  Route::get('/isbiosis', function () {
+        return view('logguru.isbiosiswa');
     });
  Route::get('/siswa', function () {
         return view('loginsiswa.index');

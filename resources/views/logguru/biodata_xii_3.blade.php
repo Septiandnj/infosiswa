@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('nav')
-
+        @role('admin')
             <div class="logo">
                 <label class="simple-text">
                     Admin Informasi
@@ -14,6 +14,7 @@
                         <p>Home</p>
                     </a>
                 </li>
+                
                 <li>
                     <a href="#">
                         <i class="pe-7s-id"></i>
@@ -62,7 +63,46 @@
                         <p>Lihat Nilai Siswa</p>
                     </a>
                 </li>
+            @endrole
                 
+            @role('Guru')
+                <div class="logo">
+                    <label class="simple-text">
+                        Guru Informasi
+                    </label>
+                </div>
+
+                <ul class="nav">
+                    <li>
+                        <a href="{{ url('/guru') }}">
+                            <i class="pe-7s-home"></i>
+                            <p>Home</p>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="nilai">
+                            <i class="pe-7s-id"></i>
+                            <p>Data Nilai Siswa</p>
+                        </a>
+                    </li>
+            @endrole
+
+            @role('Siswa')
+                <div class="logo">
+                    <label class="simple-text">
+                        Siswa Informasi
+                    </label>
+                </div>
+
+                <ul class="nav">
+                    <li>
+                        <a href="{{ url('/siswa') }}">
+                            <i class="pe-7s-home"></i>
+                            <p>Home</p>
+                        </a>
+                    </li>
+            @endrole
             </ul>
         </div>
 
@@ -90,7 +130,7 @@
                     <table class="table table-hover">
                         <tr>
                             <td><label>NISN</label></td>
-                            <td><input type="text" name="nipg" class="form-control" readonly="" placeholder="151610258"></td>
+                            <td><input type="text" name="nipg" class="form-control"></td>
                         </tr>
                         <tr>
                             <td><label>Foto</label></td>
@@ -98,7 +138,7 @@
                         </tr>
                         <tr>
                             <td><label>Nama Siswa</label></td>
-                            <td><input type="text" name="nama_guru" class="form-control" value="{{ Auth::user()->name}}"></td>
+                            <td><input type="text" name="nama_guru" class="form-control"></td>
                         </tr>
                         <tr>
                             <td><label>Jenis Kelamin</label></td>
@@ -110,27 +150,27 @@
                         <tr>
                             <td><label>Tanggal Lahir</label></td>
                             <td>
-                                <input type="text" name="tanggal_lahir" class="form-control" readonly="" placeholder="01-02-2000">
+                                <input type="text" name="tanggal_lahir" class="form-control">
                             </td>
                         </tr>
                         <tr>
                             <td><label>Kelas</label></td>
-                            <td><input type="text" name="nama_guru" class="form-control" readonly="" placeholder="XII 3"></td>
+                            <td><input type="text" name="nama_guru" class="form-control"></td>
                         </tr>
                         <tr>
                             <td><label>Jurusan</label></td>
-                            <td><input type="text" name="nama_guru" class="form-control" readonly="" placeholder="Rekayasa Perangkat Lunak"></td>
+                            <td><input type="text" name="nama_guru" class="form-control"></td>
                         </tr>
                         <tr>
                             <td><label>Alamat</label></td>
                             <td>
-                                <textarea name="alamat" class="form-control" readonly="" placeholder="Parken"></textarea>
+                                <textarea name="alamat" class="form-control"></textarea>
                             </td>
                         </tr>
                         <tr>
                             <td><label>No Telepon</label></td>
                             <td>
-                                <input type="text" name="no_telepon" class="form-control" readonly="" placeholder="089679876567"></textarea>
+                                <input type="text" name="no_telepon" class="form-control"></textarea>
                             </td>
                         </tr>
                     </table>

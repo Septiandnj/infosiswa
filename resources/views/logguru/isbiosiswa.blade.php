@@ -48,7 +48,7 @@
                     <table class="table table-hover">
                         <tr>
                             <td><label>NISN</label></td>
-                            <td><input type="text" name="nipg" class="form-control" readonly=""></td>
+                            <td><input type="text" name="nipg" class="form-control"></td>
                         </tr>
                         <tr>
                             <td><label>Foto</label></td>
@@ -56,7 +56,7 @@
                         </tr>
                         <tr>
                             <td><label>Nama Siswa</label></td>
-                            <td><input type="text" name="nama_guru" class="form-control" readonly=""></td>
+                            <td><input type="text" name="nama_guru" class="form-control"></td>
                         </tr>
                         <tr>
                             <td><label>Jenis Kelamin</label></td>
@@ -68,28 +68,27 @@
                         <tr>
                             <td><label>Tanggal Lahir</label></td>
                             <td>
-                                <input type="text" name="tanggal_lahir" class="form-control" readonly="">
+                                <input type="text" name="tanggal_lahir" class="form-control">
                             </td>
                         </tr>
                         <tr>
                             <td><label>Kelas</label></td>
-                            <td><input type="text" name="nama_guru" class="form-control" readonly=""></td>
+                            <td><input type="text" name="nama_guru" class="form-control"></td>
                         </tr>
                         <tr>
                             <td><label>Jurusan</label></td>
-                            <td><input type="text" name="nama_guru" class="form-control" readonly=""></td>
+                            <td><input type="text" name="nama_guru" class="form-control"></td>
                         </tr>
                         <tr>
                             <td><label>Alamat</label></td>
                             <td>
-                                <textarea name="alamat" class="form-control" readonly=""></textarea>
+                                <textarea name="alamat" class="form-control"></textarea>
                             </td>
                         </tr>
                         <tr>
                             <td><label>No Telepon</label></td>
                             <td>
-                                <input type="text" name="no_telepon" class="form-control" readonly=""></textarea>
-                            </td>
+                                <input type="text" name="no_telepon" class="form-control"></td>
                         </tr>
                     </table>
                         <th>
