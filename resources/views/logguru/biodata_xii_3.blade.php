@@ -125,7 +125,8 @@
                 <div class="panel-title"></div>
                 </div>
                 <div class="panel-body">
-                    <a href="/isbiosis" class="btn btn-basic">Isi Bio Siswa</a><hr>
+                    <a href="{{route('biodata.create')}}" class="btn btn-basic">Isi Bio Siswa</a>
+                    <a href="/" class="btn btn-basic pull-right">Ubah Bio Siswa</a>
                    <form>
                     <table class="table table-hover">
                         <tr>

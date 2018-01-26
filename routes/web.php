@@ -39,6 +39,8 @@ Route::post('settings/password', 'SettingsController@updatePassword');
 
   Route::resource('logguru','LoginguruController');
 
+  Route::resource('biodata','BiodataController');
+
  Route::get('/nilai', function () {
         return view('nilai.index');
     });

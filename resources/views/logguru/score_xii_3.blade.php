@@ -164,7 +164,7 @@
                                     <a href="{{route('logguru.edit', $data->id)}}" class="btn btn-warning">Edit</a>
                                     <input type="submit" class="btn btn-danger" onclick="return confirm('Anda yakin akan menghapus data ?');" value="Delete">
                                   </form>
-                                    <a href="/biosis" class="btn basic">Biodata</a></td>
+                                    <a href="{{route('biodata.index')}}" class="btn basic">Biodata</a></td>
                             </tr>
                         @endforeach
                     </table>

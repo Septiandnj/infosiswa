@@ -16,7 +16,7 @@
                 </li>
                 <li>
                     <a href="/nilai">
-                        <i class="pe-7s-file"></i>
+                        <i class="pe-7s-id"></i>
                         <p>Data Nilai Siswa</p>
                     </a>
                 </li>

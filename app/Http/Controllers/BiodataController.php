@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BioController extends Controller
+class BiodataController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +14,7 @@ class BioController extends Controller
     public function index()
     {
         //
+        return view('logguru.biodata_xii_3');
     }
 
     /**
@@ -24,6 +25,7 @@ class BioController extends Controller
     public function create()
     {
         //
+        return view('logguru.isbiosiswa');
     }
 
     /**
@@ -57,6 +59,7 @@ class BioController extends Controller
     public function edit($id)
     {
         //
+        return view('logguru.biodata_xii_3');
     }
 
     /**
