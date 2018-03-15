@@ -32,4 +32,10 @@ class User extends Authenticatable
     protected $casts = [
         'is_verified' => 'boolean',
     ];
+
+    public function guru() 
+    {
+        return $this->hasMany('App\guru', 'id_user');
+    }
+
 }

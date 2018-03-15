@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\mapel;
 use Illuminate\Http\Request;
+use Alert;
 
 class mapelController extends Controller
 {
@@ -44,6 +45,8 @@ class mapelController extends Controller
             $mapels =  new mapel();
             $mapels->mapel = $request->mapel;
             $mapels->save();
+            // Alert::success('Menambah Data', 'Berhasil')->autoclose(2000);
+            // return redirect()->route('mapel.index');
             return redirect()->route('mapel.index')->with('alert-success', 'Data Berhasil Disimpan.'); 
     }
 

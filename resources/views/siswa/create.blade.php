@@ -15,49 +15,37 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="pe-7s-id"></i>
-                        <p>Regis Guru</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="pe-7s-users"></i>
-                        <p>Regis Siswa</p>
-                    </a>
-                </li>
-                <li>
                     <a href="{{ route('guru.index') }}">
                         <i class="pe-7s-wallet"></i>
-                        <p>Tambah Data Guru</p>
+                        <p>Data Guru</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('siswa.index') }}">
                         <i class="pe-7s-notebook"></i>
-                        <p>Tambah Data Siswa</p>
+                        <p>Data Siswa</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('mapel.index') }}">
                         <i class="pe-7s-news-paper"></i>
-                        <p>Tambah Mapel</p>
+                        <p>Mata Pelajaran</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('kelas.index') }}">
                         <i class="pe-7s-culture"></i>
-                        <p>Tambah Kelas</p>
+                        <p>Kelas</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('jurusan.index') }}">
                         <i class="pe-7s-tools"></i>
-                        <p>Tambah Jurusan</p>
+                        <p>Jurusan</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/nilai">
+                    <a href="/jurusan">
                         <i class="pe-7s-file"></i>
                         <p>Lihat Nilai Siswa</p>
                     </a>
@@ -84,6 +72,13 @@
                 <div class="panel-heading">Tambah Data Siswa
                 </div>
                 <div class="panel-body">
+                    @if($errors->any())
+                        <div class="alert alert-danger">
+                            @foreach( $errors->all() as $err)
+                              <li><span>{{$err}}</span></li>
+                            @endforeach
+                        </div>
+                    @endif
                    <form action="{{route('siswa.store')}}" method="post"  enctype="multipart/form-data" files="true">
                     {{csrf_field()}}
                     <table class="table table-hover">
@@ -138,6 +133,18 @@
                             <td><label>No Telepon</label></td>
                             <td>
                                 <input type="text" name="no_telepon" class="form-control"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Email</label></td>
+                            <td>
+                                <input type="Email" name="email" class="form-control" required="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Password</label></td>
+                            <td>
+                                <input type="Password" name="password" class="form-control" required=""></textarea>
                             </td>
                         </tr>
                     </table>

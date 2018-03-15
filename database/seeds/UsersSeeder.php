@@ -12,20 +12,20 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        $adminRole = new Role();
+         $adminRole = new Role();
         $adminRole->name = "admin";
         $adminRole->display_name = "Admin";
         $adminRole->save();
 
-        // membuat role member
+        // membuat role guru
         $guruRole = new Role();
-        $guruRole->name = "Guru";
+        $guruRole->name = "guru";
         $guruRole->display_name = "Guru";
         $guruRole->save();
 
-        // membuat role member
+        // membuat role siswa
         $siswaRole = new Role();
-        $siswaRole->name = "Siswa";
+        $siswaRole->name = "siswa";
         $siswaRole->display_name = "Siswa";
         $siswaRole->save();
 
@@ -37,24 +37,5 @@ class UsersSeeder extends Seeder
         $admin->is_verified = 1;
         $admin->save();
         $admin->attachRole($adminRole);
-
-        // membuat sample guru
-        $guru= new User();
-        $guru->name = "Sample guru";
-        $guru->email = "guru@gmail.com";
-        $guru->password = bcrypt('rahasia');
-        $guru->is_verified = 1;
-        $guru->save();
-        $guru->attachRole($guruRole);
-
-                // membuat sample guru
-        $siswa= new User();
-        $siswa->name = "Sample siswa";
-        $siswa->email = "siswa@gmail.com";
-        $siswa->password = bcrypt('rahasia');
-        $siswa->is_verified = 1;
-        $siswa->save();
-        $siswa->attachRole($siswaRole);
-
     }
 }

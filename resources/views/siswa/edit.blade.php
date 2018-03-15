@@ -15,49 +15,37 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="pe-7s-id"></i>
-                        <p>Regis Guru</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="pe-7s-users"></i>
-                        <p>Regis Siswa</p>
-                    </a>
-                </li>
-                <li>
                     <a href="{{ route('guru.index') }}">
                         <i class="pe-7s-wallet"></i>
-                        <p>Tambah Data Guru</p>
+                        <p>Data Guru</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('siswa.index') }}">
                         <i class="pe-7s-notebook"></i>
-                        <p>Tambah Data Siswa</p>
+                        <p>Data Siswa</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('mapel.index') }}">
                         <i class="pe-7s-news-paper"></i>
-                        <p>Tambah Mapel</p>
+                        <p>Mata Pelajaran</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('kelas.index') }}">
                         <i class="pe-7s-culture"></i>
-                        <p>Tambah Kelas</p>
+                        <p>Kelas</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('jurusan.index') }}">
                         <i class="pe-7s-tools"></i>
-                        <p>Tambah Jurusan</p>
+                        <p>Jurusan</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/nilai">
+                    <a href="/jurusan">
                         <i class="pe-7s-file"></i>
                         <p>Lihat Nilai Siswa</p>
                     </a>
@@ -95,7 +83,7 @@
                         </tr>
                         <tr>
                             <td><label>Foto</label></td>
-                            <td><input type="file" name="foto" value="<?php echo $siswas['foto'];?>" required></td>
+                            <td><img src="{{asset('img/'.$siswas->foto)}}" width="75px" height="75px"><input type="file" name="foto"></td>
                         </tr>
                         <tr>
                             <td><label>Nama siswa</label></td>

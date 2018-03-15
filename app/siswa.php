@@ -20,4 +20,14 @@ class siswa extends Model
     {
     	return $this->belongsTo('App\kelas','kelas_id');
     }
+
+    public function siswa() 
+    {
+        return $this->hasMany('App\siswa');
+    }
+
+    public function nilai() 
+    {
+        return $this->hasMany('App\nilai', 'id_siswa');
+    }
 }

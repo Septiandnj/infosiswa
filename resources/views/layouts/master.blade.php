@@ -58,10 +58,7 @@
                                 </a>
                                 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        @yield('profil')
-                                    </li>
-                                    <li><a href="{{ url('/settings/password') }}"><i class="fa fa-btn fa-lock"></i> Ubah Password</a></li>
+                                    
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
@@ -88,7 +85,7 @@
     </div>
 </div>
 
-
+</div>
 </body>
 
         <!--   Core JS Files   -->

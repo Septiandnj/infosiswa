@@ -74,4 +74,8 @@ class RegisterController extends Controller
          $user->sendVerification();
          return $user;
     }
+
+    public function showRegistrationForm(){
+        return view('errors.403');
+    }
 }

@@ -3,7 +3,7 @@
 
             <div class="logo">
                 <label class="simple-text">
-                    Guru Informasi
+                    Admin Informasi
                 </label>
             </div>
 
@@ -15,9 +15,39 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/nilai">
+                    <a href="{{ route('guru.index') }}">
+                        <i class="pe-7s-wallet"></i>
+                        <p>Data Guru</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('siswa.index') }}">
+                        <i class="pe-7s-notebook"></i>
+                        <p>Data Siswa</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('mapel.index') }}">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Mata Pelajaran</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('kelas.index') }}">
+                        <i class="pe-7s-culture"></i>
+                        <p>Kelas</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('jurusan.index') }}">
+                        <i class="pe-7s-tools"></i>
+                        <p>Jurusan</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/jurusan">
                         <i class="pe-7s-file"></i>
-                        <p>Data Nilai Siswa</p>
+                        <p>Lihat Nilai Siswa</p>
                     </a>
                 </li>
                 
@@ -47,7 +77,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="col-sm-12">
-                                <center><a href="/rekayasa" class="btn btn-primary"><i class="pe-7s-usb"></i> REKAYASA PERANGKAT LUNAK</a></center>
+                                <center><a href="/kelas" class="btn btn-primary"><i class="pe-7s-usb"></i> REKAYASA PERANGKAT LUNAK</a></center>
                                   <div><br><br><br></div>
                             </div>
                         </div>

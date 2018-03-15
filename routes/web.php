@@ -11,65 +11,38 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
-
 Auth::routes();
-
 Route::get('/home', 'HomeController@index');
-Route::group(['prefix'=>'admin','middleware'=>['auth','role:admin']], function(){
-	Route::resource('mapel','MapelController');
-	Route::resource('guru', 'GuruController');
-	Route::resource('siswa', 'SiswaController');
-	Route::resource('kelas','KelasController');
-	Route::resource('jurusan','JurusanController');
-	//Route::resource('nilai','NilaiController');
+Route::group(['prefix'=>'infonisiswa','middleware'=>['auth','role:admin|guru|siswa']], function(){
+    Route::resource('mapel','MapelController');
+    Route::resource('guru', 'GuruController');
+    Route::resource('hasil','HasilController');
+    Route::resource('siswa', 'SiswaController');
+    Route::resource('kelas','KelasController');
+    Route::resource('jurusan','JurusanController');
+    Route::resource('nilai','NilaiController');
+
+    });
+Route::get('/filter/{mapel}','HomeController@filter');
+
+Route::get('/jurusan', function () {
+	return view('logguru/piljurusan');
 });
-Route::get('settings/profile', 'SettingsController@profile');
-Route::get('settings/profile/edit', 'SettingsController@editProfile');
-Route::post('settings/profile', 'SettingsController@updateProfile');
-Route::get('settings/password', 'SettingsController@editPassword');
-Route::post('settings/password', 'SettingsController@updatePassword');
 
-  Route::group(['prefix'=>'Guru','middleware'=>['auth','role:Guru']], function(){
-      
+Route::get('/kelas', function () {
+	return view('logguru/kelas');
+});
 
- });
+Route::get('/mapel', function () {
+	return view('nilai/mapel');
+});
 
-  Route::resource('logguru','LoginguruController');
-
-  Route::resource('biodata','BiodataController');
-
- Route::get('/nilai', function () {
-        return view('nilai.index');
-    });
-
- Route::get('/rekayasa', function () {
-        return view('nilai.rekperlun.kelass');
-    });
-
- Route::get('/jenmapel', function () {
-        return view('nilai.rekperlun.pelajaran.pelajaran_xii_3');
-    });
- Route::get('/score', function () {
-        return view('loginguru.score_xii_3');
-    });
- Route::get('/bio', function () {
-        return view('nilai.rekperlun.biodata.biodata_xii_3');
-    });
- Route::get('/guru', function () {
-        return view('loginguru.index');
-    });
-  Route::get('/cretscore', function () {
-         return view('loginguru.createnilai');
-    });
- Route::get('/biosis', function () {
-        return view('logguru.biodata_xii_3');
-    });
-  Route::get('/isbiosis', function () {
-        return view('logguru.isbiosiswa');
-    });
- Route::get('/siswa', function () {
-        return view('loginsiswa.index');
-    });
+// Route::get('settings/profile', 'SettingsController@profile');
+// Route::get('settings/profile/edit', 'SettingsController@editProfile');
+// Route::post('settings/profile', 'SettingsController@updateProfile');
+// Route::get('settings/password', 'SettingsController@editPassword');
+// Route::post('settings/password', 'SettingsController@updatePassword');

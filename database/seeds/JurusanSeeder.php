@@ -13,6 +13,8 @@ class JurusanSeeder extends Seeder
     public function run()
     {
         //
-        $jurusan1 = Jurusan::create(['jurusan'=>'Informatika']);
+        $jurusan1 = Jurusan::create(['jurusan'=>'Rekayasa Perangkat Lunak']);
+        $jurusan2 = Jurusan::create(['jurusan'=>'Teknik Kendraan Ringan']);
+        $jurusan3 = Jurusan::create(['jurusan'=>'Teknik Sepeda Motor']);    
     }
 }

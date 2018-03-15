@@ -15,49 +15,37 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="pe-7s-id"></i>
-                        <p>Regis Guru</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="pe-7s-users"></i>
-                        <p>Regis Siswa</p>
-                    </a>
-                </li>
-                <li>
                     <a href="{{ route('guru.index') }}">
                         <i class="pe-7s-wallet"></i>
-                        <p>Tambah Data Guru</p>
+                        <p>Data Guru</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('siswa.index') }}">
                         <i class="pe-7s-notebook"></i>
-                        <p>Tambah Data Siswa</p>
+                        <p>Data Siswa</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('mapel.index') }}">
                         <i class="pe-7s-news-paper"></i>
-                        <p>Tambah Mapel</p>
+                        <p>Mata Pelajaran</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('kelas.index') }}">
                         <i class="pe-7s-culture"></i>
-                        <p>Tambah Kelas</p>
+                        <p>Kelas</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('jurusan.index') }}">
                         <i class="pe-7s-tools"></i>
-                        <p>Tambah Jurusan</p>
+                        <p>Jurusan</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/nilai">
+                    <a href="/jurusan">
                         <i class="pe-7s-file"></i>
                         <p>Lihat Nilai Siswa</p>
                     </a>
@@ -85,6 +73,13 @@
                 <div class="panel-title"></div>
                 </div>
                 <div class="panel-body">
+                    @if($errors->any())
+                        <div class="alert alert-danger">
+                            @foreach( $errors->all() as $err)
+                              <li><span>{{$err}}</span></li>
+                            @endforeach
+                        </div>
+                    @endif
                    <form action="{{route('guru.store')}}" method="post" enctype="multipart/form-data" files="true">
                     {{csrf_field()}}
                     <table class="table table-hover">
@@ -94,7 +89,7 @@
                         </tr>
                         <tr>
                             <td><label>Foto</label></td>
-                            <td><input type="file" name="foto"></td>
+                            <td><input type="file" name="foto" required=""></td>
                         </tr>
                         <tr>
                             <td><label>Nama Guru</label></td>
@@ -113,9 +108,17 @@
                                 <input type="date" name="tanggal_lahir" class="form-control">
                             </td>
                         </tr>
+                        <tr>
+                            <td><label>Kelas</label></td>
+                            <td><select multiple="multiple" class="form-control" name="id_kelas[]" required="">
+                                @foreach($kelas as $data)
+                                <option value="{{$data->kelas}}">{{$data->kelas}}</option>
+                                @endforeach
+                                </select></td>
+                        </tr>
                             <tr>
                               <td><label>Mata Pelajaran</label></td>
-                                <td><select class="form-control" name="id_mapel">
+                                <td><select class="form-control" name="id_mapel" required="">
                                 @foreach($mapel as $data)
                                 <option value="{{$data->id}}">{{$data->mapel}}</option>
                                 @endforeach
@@ -131,6 +134,18 @@
                             <td><label>No Telepon</label></td>
                             <td>
                                 <input type="text" name="no_telepon" class="form-control"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Email</label></td>
+                            <td>
+                                <input type="Email" name="email" class="form-control" required="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Password</label></td>
+                            <td>
+                                <input type="Password" name="password" class="form-control" required=""></textarea>
                             </td>
                         </tr>
                     </table>

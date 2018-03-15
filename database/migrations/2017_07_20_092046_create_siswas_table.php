@@ -15,19 +15,20 @@ class CreateSiswasTable extends Migration
     {
         Schema::create('siswas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nis');
+            $table->string('nis')->unique();
             $table->string('foto');
             $table->string('nama_siswa');
             $table->string('jenis_kelamin');
             $table->date('tanggal_lahir');
-            $table->integer('kelas_id')->unsigned();
-            $table->foreign('kelas_id')->references('id')->on('kelas')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('id_kelas')->unsigned();
+            $table->foreign('id_kelas')->references('id')->on('kelas')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('jurusan_id')->unsigned();
             $table->foreign('jurusan_id')->references('id')->on('jurusans')->onUpdate('cascade')->onDelete('cascade');
             $table->text('alamat');
-            $table->string('no_telepon');
+            $table->string('no_telepon')->unique();
+            $table->string('email')->unique();
+            $table->string('password');
             $table->timestamps();
-
         });
     }
 

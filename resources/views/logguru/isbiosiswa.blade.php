@@ -68,7 +68,7 @@
                         <tr>
                             <td><label>Tanggal Lahir</label></td>
                             <td>
-                                <input type="text" name="tanggal_lahir" class="form-control">
+                                <input type="date" name="tanggal_lahir" class="form-control">
                             </td>
                         </tr>
                         <tr>

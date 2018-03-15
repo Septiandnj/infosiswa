@@ -15,20 +15,17 @@ class CreateNilaisTable extends Migration
     {
         Schema::create('nilais', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('guru_id')->unsigned();
-            $table->foreign('guru_id')->references('id')->on('gurus')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('siswa_id')->unsigned();
-            $table->foreign('siswa_id')->references('id')->on('siswas')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('pelajaran_id')->unsigned();
-            $table->foreign('pelajaran_id')->references('id')->on('mapels')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('jurusan_id')->unsigned();
-            $table->foreign('jurusan_id')->references('id')->on('jurusans')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('kelas_id')->unsigned();
-            $table->foreign('kelas_id')->references('id')->on('kelas')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('nilai');
+            $table->integer('id_siswa');
+            $table->integer('id_mapel');
+            $table->integer('kkm');
+            $table->integer('uh1');
+            $table->integer('uh2');
+            $table->integer('uh3');
+            $table->integer('uh4');
+            $table->integer('rataa');
+            $table->integer('uts');
+            $table->integer('uas');
             $table->timestamps();
-
-
         });
     }
 

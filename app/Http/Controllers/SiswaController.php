@@ -5,16 +5,18 @@ namespace App\Http\Controllers;
 use App\siswa;
 use App\kelas;
 use App\jurusan;
+use App\user;
+use App\Role;
+use App\Http\Requests\SiswaRequest;
 use Illuminate\Http\Request;
+use DB;
 
 class SiswaController extends Controller
 {
     public function index()
     {
-        $siswas = siswa::all();
-        $kelas = kelas::all();
-        $jurusan = jurusan::all();
-        return view('siswa.index', compact('siswas','kelas','jurusan'));
+        $siswas = DB::table('siswas')->join('jurusans','jurusans.id','=','siswas.jurusan_id')->join('kelas','kelas.id','=','siswas.id_kelas')->select('siswas.*','jurusans.jurusan','kelas.kelas')->get();
+        return view('siswa.index', compact('siswas'));
     }
 
     /**
@@ -24,7 +26,6 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        $siswas = siswa::all();
         $kelas = kelas::all();
         $jurusan = jurusan::all();
         return view('siswa.create', compact('siswas','kelas','jurusan'));
@@ -38,7 +39,16 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //  
+            $user= new user();
+            $user->name = $request->nama_siswa;
+            $user->email = $request->email;
+            $user->password =bcrypt($request->password);
+            $user->is_verified = 1;
+            $user->save();
+            $siswaRole = Role::where('name', 'siswa')->first();
+            $user->attachRole($siswaRole);
+
             $siswas =  new siswa();
             $siswas->nis = $request->nis;
             if ($request->hasfile('foto')) {
@@ -52,11 +62,14 @@ class SiswaController extends Controller
             $siswas->nama_siswa = $request->nama_siswa;
             $siswas->jenis_kelamin = $request->jenis_kelamin;
             $siswas->tanggal_lahir = $request->tanggal_lahir;
-            $siswas->kelas_id = $request->kelas_id;
+            $siswas->id_kelas = $request->kelas_id;
             $siswas->jurusan_id = $request->jurusan_id;
             $siswas->alamat = $request->alamat;
             $siswas->no_telepon = $request->no_telepon;
+            $siswas->email = $request->email;
+            $siswas->password = $request->password;
             $siswas->save();
+
             return redirect()->route('siswa.index')->with('alert-success', 'Data Berhasil Disimpan.');
     }
 
@@ -103,23 +116,23 @@ class SiswaController extends Controller
             $siswas->nis = $request->nis;
             $siswas->foto = $request->foto;
             if ($request->hasfile('foto')) {
-                $siswas = $request->file('foto');
-                $extension = $siswas->getClientOriginalExtension();
+                $siswa = $request->file('foto');
+                $extension = $siswa->getClientOriginalExtension();
                 $filename = str_random(6).'.'.$extension;
-                $destinationPath = public_path() . DIRECTORY_SEPERATOR . 'img';
-                $siswas->move($destinationPath, $filename);
+                $destinationPath = public_path().'/img';
+                $siswa->move($destinationPath, $filename);
                 $siswas->foto = $filename; 
+            }
             $siswas->nama_siswa = $request->nama_siswa;
             $siswas->jenis_kelamin = $request->jenis_kelamin;
             $siswas->tanggal_lahir = $request->tanggal_lahir;
-            $siswas->kelas_id = $request->kelas_id;
+            $siswas->id_kelas = $request->kelas_id;
             $siswas->jurusan_id = $request->jurusan_id;
             $siswas->alamat = $request->alamat;
             $siswas->no_telepon = $request->no_telepon;
             $siswas->save();
             return redirect()->route('siswa.index')->with('alert-success', 'Data Berhasil Ditambah.');
     }
-}
 
     /**
      * Remove the specified resource from storage.

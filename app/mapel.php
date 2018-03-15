@@ -15,4 +15,9 @@ class mapel extends Model
     {
     	return $this->hasMany('App\guru', 'id_mapel');
     }
+
+    public function nilai() 
+    {
+    	return $this->hasMany('App\nilai', 'id_mapel');
+    }
 }

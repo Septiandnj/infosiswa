@@ -15,17 +15,22 @@ class CreateGurusTable extends Migration
     {
         Schema::create('gurus', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nipg');
+            $table->integer('id_user')->unsigned();
+            $table->foreign('id_user')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('nipg')->unique();
             $table->string('foto');
             $table->string('nama_guru');
             $table->string('jenis_kelamin');
             $table->date('tanggal_lahir');
+            $table->text('kelas');
+            // $table->integer('id_kelas')->unsigned();
+            // $table->foreign('id_kelas')->references('id')->on('kelas')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('id_mapel')->unsigned();
-            $table->foreign('id_mapel')->references('id')
-                  ->on('mapels')->onUpdate('cascade')
-                  ->onDelete('cascade');  
+            $table->foreign('id_mapel')->references('id')->on('mapels')->onUpdate('cascade')->onDelete('cascade'); 
             $table->text('alamat');
-            $table->string('no_telepon');
+            $table->string('no_telepon')->unique();
+            $table->string('email')->unique();
+            $table->string('password');
             $table->timestamps();
         });
     }

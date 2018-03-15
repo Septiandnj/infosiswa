@@ -14,58 +14,45 @@
                         <p>Home</p>
                     </a>
                 </li>
-                
-                <li>
-                    <a href="#">
-                        <i class="pe-7s-id"></i>
-                        <p>Regis Guru</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="pe-7s-users"></i>
-                        <p>Regis Siswa</p>
-                    </a>
-                </li>
                 <li>
                     <a href="{{ route('guru.index') }}">
                         <i class="pe-7s-wallet"></i>
-                        <p>Tambah Data Guru</p>
+                        <p>Data Guru</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('siswa.index') }}">
                         <i class="pe-7s-notebook"></i>
-                        <p>Tambah Data Siswa</p>
+                        <p>Data Siswa</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('mapel.index') }}">
                         <i class="pe-7s-news-paper"></i>
-                        <p>Tambah Mapel</p>
+                        <p>Mata Pelajaran</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('kelas.index') }}">
                         <i class="pe-7s-culture"></i>
-                        <p>Tambah Kelas</p>
+                        <p>Kelas</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('jurusan.index') }}">
                         <i class="pe-7s-tools"></i>
-                        <p>Tambah Jurusan</p>
+                        <p>Jurusan</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/nilai">
+                    <a href="/jurusan">
                         <i class="pe-7s-file"></i>
                         <p>Lihat Nilai Siswa</p>
                     </a>
                 </li>
             @endrole
                 
-            @role('Guru')
+            @role('guru')
                 <div class="logo">
                     <label class="simple-text">
                         Guru Informasi
@@ -74,21 +61,21 @@
 
                 <ul class="nav">
                     <li>
-                        <a href="{{ url('/guru') }}">
+                        <a href="{{ url('/home') }}">
                             <i class="pe-7s-home"></i>
                             <p>Home</p>
                         </a>
                     </li>
                 
                     <li>
-                        <a href="nilai">
+                        <a href="{{ route('nilai.index') }}">
                             <i class="pe-7s-id"></i>
                             <p>Data Nilai Siswa</p>
                         </a>
                     </li>
             @endrole
 
-            @role('Siswa')
+            @role('siswa')
                 <div class="logo">
                     <label class="simple-text">
                         Siswa Informasi
@@ -97,7 +84,7 @@
 
                 <ul class="nav">
                     <li>
-                        <a href="{{ url('/siswa') }}">
+                        <a href="{{ url('/home') }}">
                             <i class="pe-7s-home"></i>
                             <p>Home</p>
                         </a>
@@ -134,7 +121,7 @@
                                   <div><br><br><br></div>
                             </div>
                             <div class="col-sm-12">
-                                <center><a href="{{ route('jurusan.index') }}" class="btn btn-primary"><i class="pe-7s-tools"></i> DATA JURUSAN</a></center>
+                                <center><a href="{{ route('kelas.index') }}" class="btn btn-primary"><i class="pe-7s-culture"></i> DATA KELAS</a></center>
                             </div>
                         </div>
 
@@ -144,7 +131,7 @@
                                 <div><br><br><br></div>
                             </div>
                             <div class="col-sm-12">
-                                <center><a href="{{ route('kelas.index') }}" class="btn btn-primary"><i class="pe-7s-culture"></i> DATA KELAS</a></center>
+                                <center><a href="{{ route('jurusan.index') }}" class="btn btn-primary"><i class="pe-7s-tools"></i> DATA JURUSAN</a></center>
                             </div>
                         </div>
 
@@ -154,7 +141,7 @@
                                 <div><br><br><br></div>
                             </div>
                             <div class="col-sm-12">
-                                <center><a href="/nilai" class="btn btn-primary"><i class="pe-7s-file"></i> NILAI SISWA</a></center>
+                                <center><a href="/jurusan" class="btn btn-primary"><i class="pe-7s-file"></i> NILAI SISWA</a></center>
                             </div>
                         </div>
                     </div>
@@ -165,7 +152,7 @@
 </div>
 @endrole
 
-@role('Guru')
+@role('guru')
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -178,7 +165,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-sm-12">
-                                <center><a href="/nilai" class="btn btn-primary"><i class="pe-7s-wallet"></i> Tambah Data Nilai Siswa</a></center>
+                                <center><a href="{{ route('nilai.index') }}" class="btn btn-primary"><i class="pe-7s-wallet"></i> Tambah Data Nilai Siswa</a></center>
                                   <div><br><br><br></div>
                             </div>
                         </div>
@@ -190,7 +177,7 @@
 </div>
 @endrole
 
-@role('Siswa')
+@role('siswa')
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -204,57 +191,57 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="col-sm-12">
-                                <center><a href="/score" class="btn btn-primary">Al-Qur'an</a></center>
+                                <center><a href="{{ route('hasil.index') }}" class="btn btn-primary">Al-Qur'an</a></center>
                                   <div><br><br><br></div>
                             </div>
                             <div class="col-sm-12">
-                                <center><a href="{{ route('jurusan.index') }}" class="btn btn-primary">SBK</a></center>
+                                <center><a href="#}}" class="btn btn-primary">SBK</a></center>
                                 <div><br><br><br></div>
                             </div>
                             <div class="col-sm-12">
-                                <center><a href="{{ route('jurusan.index') }}" class="btn btn-primary">B.Indonesia</a></center>
+                                <center><a href="#}}" class="btn btn-primary">B.Indonesia</a></center>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="col-sm-12">
-                                <center><a href="{{ route('siswa.index') }}" class="btn btn-primary">Matematika</a></center>
+                                <center><a href="#" class="btn btn-primary">Matematika</a></center>
                                 <div><br><br><br></div>
                             </div>
                             <div class="col-sm-12">
-                                <center><a href="{{ route('kelas.index') }}" class="btn btn-primary">Penjas</a></center>
+                                <center><a href="#" class="btn btn-primary">Penjas</a></center>
                                 <div><br><br><br></div>
                             </div>
                             <div class="col-sm-12">
-                                <center><a href="{{ route('kelas.index') }}" class="btn btn-primary">PKN</a></center>
+                                <center><a href="#" class="btn btn-primary">PKN</a></center>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="col-sm-12">
-                                <center><a href="{{ route('siswa.index') }}" class="btn btn-primary">PAI</a></center>
+                                <center><a href="#" class="btn btn-primary">PAI</a></center>
                                 <div><br><br><br></div>
                             </div>
                             <div class="col-sm-12">
-                                <center><a href="{{ route('kelas.index') }}" class="btn btn-primary">DKK</a></center>
+                                <center><a href="#" class="btn btn-primary">DKK</a></center>
                                 <div><br><br><br></div>
                             </div>
                             <div class="col-sm-12">
-                                <center><a href="{{ route('kelas.index') }}" class="btn btn-primary">Fisika</a></center>
+                                <center><a href="#" class="btn btn-primary">Fisika</a></center>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="col-sm-12">
-                                <center><a href="{{ route('siswa.index') }}" class="btn btn-primary">B.Inggris</a></center>
+                                <center><a href="#" class="btn btn-primary">B.Inggris</a></center>
                                 <div><br><br><br></div>
                             </div>
                             <div class="col-sm-12">
-                                <center><a href="{{ route('kelas.index') }}" class="btn btn-primary">IPA</a></center>
+                                <center><a href="#" class="btn btn-primary">IPA</a></center>
                                 <div><br><br><br></div>
                             </div>
                             <div class="col-sm-12">
-                                <center><a href="{{ route('kelas.index') }}" class="btn btn-primary">Kimia</a></center>
+                                <center><a href="#" class="btn btn-primary">Kimia</a></center>
                             </div>
                         </div>
             </div>
